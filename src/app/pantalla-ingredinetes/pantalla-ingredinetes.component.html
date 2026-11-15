@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <h1 class="mb-4">Pantalla de Edición de Ingredientes</h1>
+    <hr>
+    <form (ngSubmit)="editarIngrediente()" id="ingredienteForm" class="needs-validation" novalidate>
+  
+      <div class="form-group mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" class="form-control" [(ngModel)]="ingrediente.nombre"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">El nombre es obligatorio.</div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="cantidad" class="form-label">Cantidad:</label>
+        <input type="number" id="cantidad" class="form-control" [(ngModel)]="ingrediente.cantidad"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">La cantidad es obligatoria.</div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Guardar cambios</button>
+    </form>
+  </div>
+  

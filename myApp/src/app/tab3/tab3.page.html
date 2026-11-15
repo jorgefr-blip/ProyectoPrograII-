@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+       lista de pedido    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <app-explore-container name="Tab 3 page"></app-explore-container>
+
+  <ion-card-content>
+      <div *ngFor="let pedido of pedidos" style="background-color: #eceff1; color: #333; padding: 4px 8px; border-radius: 12px; font-size: 0.85em;">
+        {{ pedido.idpedido }} <br>
+        {{ pedido.fechaHora }} <br>
+        {{ pedido.total }} <br>
+        {{ pedido.usuarioCorreo }} <br>
+        {{ pedido.estado }} <br>
+      </div>
+      <ion-item>
+        <ion-label>
+          <h2>Total a pagar: Q{{ totalPagar }}</h2>
+        </ion-label>
+      </ion-item>
+  </ion-card-content>
+</ion-content>

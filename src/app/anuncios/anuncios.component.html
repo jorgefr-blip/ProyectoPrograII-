@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h1 class="mb-4">Anuncios</h1>
+    <hr>
+    <form (ngSubmit)="creaAnuncio()" id="anuncioForm" class="needs-validation" novalidate>
+  
+      <div class="form-group mb-3">
+        <label for="titulo" class="form-label">Título:</label>
+        <input type="text" id="titulo" class="form-control" [(ngModel)]="anuncio.titulo"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">El título es obligatorio.</div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="descripcion" class="form-label">Descripción:</label>
+        <input type="text" id="descripcion" class="form-control" [(ngModel)]="anuncio.descripcion"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">La descripción es obligatoria.</div>
+      </div>
+  
+      <div class="form-group mb-3">
+        <label for="fecha" class="form-label">Fecha:</label>
+        <input type="date" id="fecha" class="form-control" [(ngModel)]="anuncio.fecha"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">La fecha es obligatoria.</div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="foto" class="form-label">Foto: *</label>
+        <input 
+          type="file" 
+          id="foto" 
+          accept="image/*" 
+          (change)="agregarfoto($event)" 
+          #fileInput 
+          class="form-control" 
+          required
+        >
+      </div>
+  
+      <button type="submit" class="btn btn-primary">crear</button>
+    </form>
+  </div>
+  

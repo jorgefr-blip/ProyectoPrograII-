@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Editar Perfil</h1>
+    <hr>
+  
+    <form (ngSubmit)="editarPerfil()" id="perfilForm" class="needs-validation" novalidate>
+  
+      <!-- Usuario -->
+      <div class="form-group mb-3">
+        <label for="usuario" class="form-label">Usuario:</label>
+        <input type="text" id="usuario" class="form-control" [(ngModel)]="administrador.usuario"
+          [ngModelOptions]="{standalone: true}" disabled>
+        <div class="invalid-feedback">El usuario es obligatorio.</div>
+      </div>
+      <hr>
+  
+      <!-- Sexo -->
+      <div class="form-group mb-3">
+        <label for="sexo" class="form-label">Sexo:</label>
+        <input type="text" id="sexo" class="form-control" [(ngModel)]="administrador.sexo"
+          [ngModelOptions]="{standalone: true}" disabled>
+        <div class="invalid-feedback">El sexo es obligatorio.</div>
+      </div>
+      <hr>
+
+      <!-- Tipo Admin -->
+      <div class="form-group mb-3">
+        <label for="sexo" class="form-label">Tipo Admin:</label>
+        <select class="form-select" aria-label="Seleccionar Tipo de Admin"
+        [(ngModel)]="administrador.tipoAdmin"
+        [ngModelOptions]="{standalone:true}">
+          <option *ngFor="let t of tiposAdmin" value="{{t.idtipoAdministrador}}">{{t.descripcion}}</option>
+        </select>
+      </div>
+      <hr>
+     
+      <!-- Password -->
+      <div class="form-group mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" class="form-control" [(ngModel)]="administrador.password"
+          [ngModelOptions]="{standalone: true}" required>
+        <div class="invalid-feedback">La contraseña es obligatoria.</div>
+      </div>
+      <hr>
+  
+      <button type="submit" class="btn btn-success">Guardar</button>
+    </form>
+  </div>
+  

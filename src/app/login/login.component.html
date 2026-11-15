@@ -1,0 +1,66 @@
+<!-- Section: Design Block -->
+<section class="text-center">
+    <div class="p-5 bg-image" style="
+          background-image: url('https://mdbootstrap.com/img/new/textures/full/171.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+  
+    <div class="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="
+          margin-top: -100px;
+          backdrop-filter: blur(30px);
+          ">
+      <div class="card-body py-5 px-md-5">
+  
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <form (ngSubmit)="login()" id="loginForm">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <!-- Email input -->
+              <label  class="form-label" for="form3Example3" ><em>usuario:</em></label>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" [(ngModel)]="adminitrador.usuario"
+                [ngModelOptions]="{standalone:true}"
+                required class="form-control" />
+              
+              </div>
+  
+              <!-- Password input -->
+              <label class="form-label" for="form3Example4"><em>password</em></label>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input  type="password" [(ngModel)]="adminitrador.password"
+                [ngModelOptions]="{standalone:true}"
+                required class="form-control" />
+                
+              </div>
+
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4"><em>Ingresar</em>
+                </button>
+  
+              <!-- Register buttons -->
+              <div class="text-center">
+        
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+  
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+  
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+  
+                <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+

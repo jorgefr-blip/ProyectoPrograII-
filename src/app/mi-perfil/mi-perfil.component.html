@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+
+<div class ="container">
+<div class="mb-3">
+    <h1 class="mb-4 text-center">mi perfil</h1>
+<label class="form-label">usuario:</label>
+<input type="text" class="form-control"
+placeholder=""  [(ngModel)]="adminitrador.usuario"
+disabled>
+
+<label class="form-label">sexo:</label>
+<input type="text" class="form-control"
+placeholder=""  [(ngModel)]="adminitrador.sexo"
+disabled>
+
+<label class="form-label">tipo :</label>
+<input type="text" class="form-control"
+placeholder=""  value="{{adminitrador.tipoAdmin | tiposAdmin: tipoAdmin }}"
+disabled>
+
+<label class="form-label">password:</label>
+<input type="text" class="form-control"
+
+placeholder=""  [(ngModel)]="adminitrador.password"
+disabled>
+
+
+</div>
+</div>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de tipos de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let producto of tipos">
+      <ion-label>
+        <h2>{{ producto.descripcion }}</h2>
+        <!-- Verificamos si la imagen existe y mostramos la imagen -->
+        <img *ngIf="producto.imagen" [src]="producto.imagen" alt="Imagen del tipo de usuario" style="max-width: 100px; max-height: 100px;">
+        <!-- Si no existe una imagen, mostramos un texto alternativo -->
+        <p *ngIf="!producto.imagen">No hay imagen disponible</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

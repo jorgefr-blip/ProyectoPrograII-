@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <h1 class="mb-4">tipo admin</h1>
+    <hr>
+  
+    <!-- Inicia el formulario aquí -->
+    <form (ngSubmit)="creaTipoAdmin()" id="tipoAdminForm" class="needs-validation" novalidate>
+      <div class="form-group mb-3">
+        <label for="titulo" class="form-label">Descripción:</label>
+        <input 
+          type="text" 
+          id="titulo" 
+          class="form-control" 
+          [(ngModel)]="tipoAdmin.descripcion" 
+          [ngModelOptions]="{standalone: true}" 
+          required
+        >
+        <div class="invalid-feedback">La descripción es obligatoria.</div>
+      </div>
+  
+      <!-- Campo de archivo para la foto -->
+      <div class="mb-3">
+        <label for="foto" class="form-label">Foto: *</label>
+        <input 
+          type="file" 
+          id="foto" 
+          accept="image/*" 
+          (change)="agregarfoto($event)" 
+          #fileInput 
+          class="form-control" 
+          required
+        >
+      </div>
+  
+      <!-- Botón de enviar -->
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+    <h1 class="mb-4"><em>Lista de Ingredientes</em></h1>
+    <div *ngFor="let ingrediente of ingredientes" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">
+          <strong><em>Nombre:</em></strong> {{ingrediente.nombre}}
+        </h5>
+        <p class="card-text">
+          <strong><em>Cantidad:</em></strong> {{ingrediente.cantidad}}
+        </p>
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger btn-sm" (click)="eliminarIngrediente(ingrediente.idingrediente)">Eliminar</button>
+          <button class="btn btn-warning btn-sm" (click)="modificarIngrediente(ingrediente)">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

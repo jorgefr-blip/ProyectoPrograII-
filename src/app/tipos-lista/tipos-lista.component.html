@@ -1,0 +1,13 @@
+<div class="container mt-5">
+    <h1 class="mb-4">tipos de admin</h1>
+    <div *ngFor="let tipo of tipos" class="card mb-3">
+
+      <div class="card-body">
+        <h3 class="card-title">{{ tipo.descripcion }}</h3>
+        <!-- Mostrar imagen solo una vez -->
+        <img [src]="tipo.imagen" alt="Imagen de {{ tipo.imagen }}" class="img-fluid rounded" style="max-width: 100px; height: auto;">
+      </div>
+
+    </div>
+  </div>
+  

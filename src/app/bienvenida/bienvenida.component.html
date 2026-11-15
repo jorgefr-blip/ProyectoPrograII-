@@ -1,0 +1,34 @@
+<app-menu></app-menu>
+
+<div class="container mt-5" style="background-color: #050505; padding: 20px; border-radius: 8px;">
+  <h1 class="mb-4 text-center text-primary">Usuarios Registrados</h1>
+
+  <!-- Fila de tarjetas de usuario -->
+  <div class="row">
+    <div *ngFor="let usuario of usuarios" class="col-md-6 col-lg-4 mb-4">
+      <div class="card border-light shadow-sm h-100">
+        <div class="card-body">
+          <!-- Título del usuario -->
+          <h5 class="card-title fw-bold text-dark">
+            {{usuario.nombre}} {{usuario.apellido}}
+          </h5>
+
+          <!-- Detalles del usuario -->
+          <p class="card-text">
+            <strong>Correo:</strong> <span class="text-muted">{{usuario.correo}}</span>
+          </p>
+          <p class="card-text">
+            <strong>NIT:</strong> <span class="text-muted">{{usuario.nit}}</span>
+          </p>
+          <p class="card-text">
+            <strong>Fecha de Registro:</strong> 
+            <span class="badge bg-info">{{usuario.fechaRegistro | date: 'dd/MM/yyyy'}}</span>
+          </p>
+          <p class="card-text">
+            <strong>Edad:</strong> <span class="text-muted">{{usuario.edad}}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

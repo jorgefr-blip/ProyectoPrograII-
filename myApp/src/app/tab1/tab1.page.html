@@ -1,0 +1,104 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mi perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Cerrar sesión</ion-button>
+      <ion-button (click)="activarCambiarContrasena()">Cambiar contraseña</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Vista del perfil -->
+  <div *ngIf="!cambiarContrasenaActivo">
+    <ion-list>
+      <ion-item>
+        <ion-label>Correo electrónico:</ion-label>
+        <ion-text>{{ usuario.correo }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-text>{{ usuario.nombre }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apellido:</ion-label>
+        <ion-text>{{ usuario.apellido }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>NIT:</ion-label>
+        <ion-text>{{ usuario.nit }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Fecha de Registro:</ion-label>
+        <ion-text>{{ usuario.fechaRegistro }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Edad:</ion-label>
+        <ion-text>{{ usuario.edad }}</ion-text>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Tipo de usuario:</ion-label>
+        <ion-text>{{ usuario.tipoUsuario | tiposUsuario: tipos }}</ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <img *ngIf="usuario.foto" [src]="usuario.foto" alt="Imagen del tipo de usuario" style="max-width: 100px; max-height: 100px;">
+        <!-- Si no existe una imagen, mostramos un texto alternativo -->
+      
+  <!-- Formulario para cambiar contraseña -->
+  <div *ngIf="cambiarContrasenaActivo">
+
+    <ion-item>
+      <ion-label position="floating">Foto: *</ion-label>
+      <input 
+        type="file" 
+        accept="image/*" 
+        (change)="agregarfoto($event)" 
+        #fileInput
+        required
+      />
+    </ion-item>
+
+    <form id="perfilForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nueva contraseña:</ion-label>
+          <ion-input
+            type="password"
+            placeholder="*********"
+            [(ngModel)]="usuario.password"
+            name="password"
+            required>
+          </ion-input>
+        </ion-item>
+
+        <!-- Combo de Tipo Usuario -->
+        <ion-item>
+          <ion-label>Tipo Usuario:</ion-label>
+          <ion-select 
+            [(ngModel)]="usuario.tipoUsuario" 
+            name="tipoUsuario"
+            interface="popover">
+            <ion-select-option *ngFor="let tipo of tipos" [value]="tipo.idtipoUsuario">
+              {{ tipo.descripcion }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button color="success" (click)="cambiarContrasena()">Guardar</ion-button>
+          <ion-button color="danger" (click)="activarCambiarContrasena()">Cancelar</ion-button>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

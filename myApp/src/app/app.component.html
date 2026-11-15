@@ -1,0 +1,126 @@
+<ion-app>
+  <ion-card>
+    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    
+    <ion-card-header>
+      <ion-card-title>Bienvenido a Bite & Bliss</ion-card-title>
+      <ion-card-subtitle>{{ creacionCuenta ? 'Crear Cuenta' : 'Login' }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <!-- Formulario de login -->
+    <ion-card-content *ngIf="!creacionCuenta">
+      <ion-list>
+        <ion-item>
+          <ion-input 
+            type="email"
+            label="Correo electrónico:"
+            placeholder="email@ejemplo.com"
+            [(ngModel)]="usuario.correo">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            type="password"
+            label="Contraseña:"
+            placeholder="*********"
+            [(ngModel)]="usuario.password">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button color="danger" (click)="login()">Ingresar</ion-button>
+        </ion-row>
+      </ion-grid>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button (click)="crearCuenta()">Crear Cuenta</ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+
+    <!-- Formulario de crear cuenta -->
+    <ion-card-content *ngIf="creacionCuenta">
+      <ion-list>
+        <ion-item>
+          <ion-input 
+            type="email"
+            label="Correo electrónico:"
+            placeholder="email@ejemplo.com"
+            [(ngModel)]="usuario.correo">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            label="Nombre:"
+            placeholder="Nombre"
+            [(ngModel)]="usuario.nombre">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            label="Apellido:"
+            placeholder="Apellido"
+            [(ngModel)]="usuario.apellido">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            label="NIT:"
+            placeholder="Ingrese su NIT"
+            [(ngModel)]="usuario.nit">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-datetime 
+            label="Fecha de Registro:"
+            display-format="YYYY-MM-DD"
+            placeholder="Seleccione la fecha"
+            [(ngModel)]="usuario.fechaRegistro">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            type="number"
+            label="Edad:"
+            placeholder="Edad"
+            [(ngModel)]="usuario.edad">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input 
+            type="password"
+            label="Contraseña:"
+            placeholder="*********"
+            [(ngModel)]="usuario.password">
+            <ion-input-password-toggle slot="end"></ion-input-password-toggle>
+          </ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button color="danger" (click)="crearCuentaUsuario()">Crear</ion-button>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row class="ion-justify-content-center">
+          <ion-button (click)="crearCuenta()">Cancelar</ion-button>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Mostrar contenido adicional si la sesión está iniciada -->
+  <ion-router-outlet *ngIf="sesionIniciada"></ion-router-outlet>
+</ion-app>

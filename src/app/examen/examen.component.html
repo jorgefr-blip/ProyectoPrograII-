@@ -1,0 +1,28 @@
+<p>examen works!</p>
+<form (ngSubmit)="consultaExamen()" id="examenForm">
+
+    <label>no_PARCIAL:*</label>
+    <input type="text" [(ngModel)]="examen.no_PARCIAL"
+    [ngModelOptions]="{standalone:true}"
+    required>
+    <br>
+
+    <label>fecha_examen:*</label>
+    <input type="date" [(ngModel)]="examen.fecha_examen"
+    [ngModelOptions]="{standalone:true}"
+    required>
+<br>
+    <label>nota:*</label>
+    <input type="text" [(ngModel)]="examen.imagen"
+    [ngModelOptions]="{standalone:true}"
+    required>
+    <br>
+
+    <label>carnet:*</label>
+    <input type="text" [(ngModel)]="examen.carnet"
+    [ngModelOptions]="{standalone:true}"
+    required>
+    <br>
+
+    <input type="submit" value="ingresar">
+</form>

@@ -1,0 +1,74 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">Agregar Platillo Nuevo</h2>
+    </div>
+    <div class="card-body bg-light">
+      <form (ngSubmit)="crearPlatillo()" id="PlatilloForm" class="border p-4 rounded">
+        <!-- Sección para la foto -->
+        <div class="mb-3">
+          <label for="foto" class="form-label">Foto: *</label>
+          <input 
+            type="file" 
+            id="foto" 
+            accept="image/*" 
+            (change)="agregarfoto($event)" 
+            #fileInput 
+            class="form-control" 
+            required
+          >
+        </div>
+
+        <!-- Sección para el precio -->
+        <div class="mb-3">
+          <label for="precio" class="form-label">Precio: *</label>
+          <div class="input-group">
+            <span class="input-group-text">$</span>
+            <input type="number" id="precio" [(ngModel)]="platillo.precio" 
+                   [ngModelOptions]="{standalone:true}" class="form-control" required>
+          </div>
+        </div>
+
+        <!-- Sección para la descripción -->
+        <div class="mb-3">
+          <label for="descripcion" class="form-label">Descripción: *</label>
+          <textarea id="descripcion" [(ngModel)]="platillo.descripcion" 
+                    [ngModelOptions]="{standalone:true}" class="form-control" required rows="3"></textarea>
+        </div>
+        
+        <!-- Botón para agregar ingredientes -->
+        <p>
+          Ingredientes: 
+          <button type="button" class="btn btn-sm btn-primary" (click)="agregarIngredientes()">+ Agregar Ingrediente</button>
+        </p>
+        <hr>
+
+        <!-- Ingredientes -->
+        <div *ngFor="let d of platillo.ingredientePlatillos">
+          <div class="mb-3">
+            <label class="form-label">Tipo Ingrediente: *</label>
+            <select class="form-select" aria-label="Seleccionar ingrediente"
+                    [(ngModel)]="d.ingredienteIdingrediente"
+                    [ngModelOptions]="{standalone:true}">
+              <option *ngFor="let t of ingrediente" [value]="t.idingrediente">{{t.nombre}}</option>
+            </select>
+          </div>
+          
+          <div class="mb-3">
+            <label for="cantidad" class="form-label">Cantidad: *</label>
+            <div class="input-group">
+              <input type="number" id="cantidad" [(ngModel)]="d.cantidad" 
+                     [ngModelOptions]="{standalone:true}" class="form-control" required>
+              <span class="input-group-text">unidades</span>
+            </div>
+          </div>
+          <hr>
+        </div>
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit" class="btn btn-success w-100">Guardar Platillo</button>
+      </form>
+    </div>
+  </div>
+
+  

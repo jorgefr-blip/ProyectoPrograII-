@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crea tipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form id="anuncioForm">
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="tipo.descripcion"
+        name="descripcion"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Foto: *</ion-label>
+      <input 
+        type="file" 
+        accept="image/*" 
+        (change)="agregarfoto($event)" 
+        #fileInput
+        required
+      />
+    </ion-item>
+    <ion-button expand="full" (click)="creaProducto()">Guardar Producto</ion-button>
+  </form>
+</ion-content>

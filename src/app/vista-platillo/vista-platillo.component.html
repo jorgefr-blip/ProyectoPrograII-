@@ -1,0 +1,53 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h1 class="mb-0">Lista de Platillos</h1>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover table-bordered text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Foto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Ingredientes</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let platillo of platillos">
+            <!-- Imagen del platillo -->
+            <td>
+              <img [src]="platillo.foto" alt="Foto del Platillo" class="img-fluid rounded" style="max-width: 100px; height: auto;">
+            </td>
+            <td>{{ platillo.descripcion }}</td>
+            <td>
+              <span class="badge bg-success">{{ platillo.precio | currency }}</span>
+            </td>
+
+            <!-- Ingredientes listados -->
+            <td>
+              <ul class="list-unstyled">
+                <li *ngFor="let ingPlatillo of platillo.ingredientePlatillos" class="badge bg-info me-1">
+                  {{ ingPlatillo.nombreIngrediente }}
+                </li>
+              </ul>
+            </td>
+
+            <!-- Botones de acción -->
+            <td>
+              <div class="d-flex justify-content-center gap-2">
+                <button class="btn btn-sm btn-warning" (click)="editarPlatillo(platillo)">
+                  <i class="bi bi-pencil"></i> Editar
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="eliminarPlatillo(platillo.idplatillo)">
+                  <i class="bi bi-trash"></i> Eliminar
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
